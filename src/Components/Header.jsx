@@ -18,9 +18,9 @@ function Header() {
       </div>
       <div className="shoppingCart">
         <ShoppingCartRoundedIcon className="cart" />
-      </div>
-      <div className="cart_content">
-        <p>2</p>
+        <div className="cart_content">
+          <p>2</p>
+        </div>
       </div>
       <div className="profileContainer">
         <div className="imgBox">
