@@ -273,7 +273,7 @@ main {
   width: 100%;
   height: 130px;
   border-radius: 10px;
-  background: url('https://firebasestorage.googleapis.com/v0/b/food-delivery-37c59.appspot.com/o/Images%2Fbanner.png?alt=media&token=7e244d84-8821-477d-b273-4c9381a474fb')
+  background: url('https://firebasestorage.googleapis.com/v0/b/divino-churros.appspot.com/o/banner.png?alt=media&token=1fe3dcef-1b00-4e89-a3c5-25536682088e')
     no-repeat center;
   background-size: cover;
   position: relative;
@@ -339,26 +339,26 @@ main {
   width: 100%;
 }
 
-.subMenuContianer,
+.subMenuContainer,
 .viewAll {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.subMenuContianer h3 {
+.subMenuContainer h3 {
   font-size: 16px;
   font-weight: 500;
   color: #2a2b3c;
 }
 
-.subMenuContianer .viewAll p {
+.subMenuContainer .viewAll p {
   font-size: 12px;
   color: #f8901c;
   font-weight: 400;
 }
 
-.subMenuContianer .viewAll i {
+.subMenuContainer .viewAll i {
   background: #f8901c;
   width: 20px;
   height: 20px;
@@ -370,7 +370,7 @@ main {
   margin-left: 10px;
 }
 
-.subMenuContianer .viewAll i .MuiSvgIcon-root {
+.subMenuContainer .viewAll i .MuiSvgIcon-root {
   font-size: 16px !important;
   color: #faf9fb;
 }
@@ -398,15 +398,15 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   padding: 5px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.05);
   transition: 0.5s;
   cursor: pointer;
+  margin-right: 12px;
 }
 
 .rowMenuCard:hover,
-.rowMenuCard.active {
+.active .rowMenuCard {
   background: #f8901c;
 }
 
@@ -424,7 +424,7 @@ main {
 }
 
 .rowMenuCard:hover .imgBox,
-.rowMenuCard.active .imgBox {
+.active .rowMenuCard .imgBox {
   background: #faf9fb;
 }
 
@@ -435,7 +435,7 @@ main {
 }
 
 .rowMenuCard:hover .imgBox img,
-.rowMenuCard.active .imgBox img {
+.active .rowMenuCard .imgBox img {
   width: 80%;
   height: 80%;
   transition: 0.5s;
@@ -449,7 +449,7 @@ main {
 }
 
 .rowMenuCard:hover h3,
-.rowMenuCard.active h3 {
+.active .rowMenuCard h3 {
   color: #faf9fb;
 }
 
@@ -465,7 +465,7 @@ main {
 }
 
 .rowMenuCard:hover .loadMenu,
-.rowMenuCard.active .loadMenu {
+.active .rowMenuCard .loadMenu {
   background: #faf9fb;
 }
 
@@ -475,7 +475,7 @@ main {
 }
 
 .rowMenuCard:hover .loadMenu .MuiSvgIcon-root,
-.rowMenuCard.active .loadMenu .MuiSvgIcon-root {
+.active .rowMenuCard .loadMenu .MuiSvgIcon-root {
   color: #f8901c;
 }
 
