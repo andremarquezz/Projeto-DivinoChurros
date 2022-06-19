@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import Header from './Components/Header';
 import BannerName from './Components/BannerName';
@@ -12,15 +12,39 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import './App.css';
 import SubMenuContainer from './Components/SubMenuContainer';
 import MenuCard from './Components/MenuCard';
-import ItemCard from './Components/ItemCard';
 import {
-  churrosDoceDeLeite,
   imageChurrosBanner,
   imageChurrosGourmet,
+  imageChurrosTodos,
   imageChurrosTradicional,
 } from './Components/Data';
+import AllFlavors from './Components/AllFlavors';
+import TraditionalFlavors from './Components/TraditionalFlavors';
+import GourmetFlavors from './Components/GourmetFlavors';
+import CartItem from './Components/CartItem';
 
 function App() {
+  const [allFlavors, setAllFlavors] = useState(true);
+  const [traditionalFlavors, setTraditional] = useState(false);
+  const [gourmetFlavors, setGourmet] = useState(false);
+
+  const handleFlavors = (type) => {
+    if (type === 'all') {
+      setAllFlavors(true);
+      setTraditional(false);
+      setGourmet(false);
+    }
+    if (type === 'traditional') {
+      setAllFlavors(false);
+      setTraditional(true);
+      setGourmet(false);
+    }
+    if (type === 'gourmet') {
+      setAllFlavors(false);
+      setTraditional(false);
+      setGourmet(true);
+    }
+  };
   return (
     <BrowserRouter>
       <div className="App">
@@ -36,34 +60,37 @@ function App() {
                 <SubMenuContainer name={'Categorias'} />
               </div>
               <div className="rowContainer">
-                <div>
-                  <MenuCard imgSrc={imageChurrosGourmet} name={'Churros Gourmet'} link="/" />
+                <div onClick={() => handleFlavors('all')}>
+                  <MenuCard imgSrc={imageChurrosTodos} name={'Todos os Sabores'} link="/" />
+                </div>
+                <div onClick={() => handleFlavors('gourmet')}>
+                  <MenuCard imgSrc={imageChurrosGourmet} name={'Churros Gourmet'} link="/1" />
                 </div>
                 <div>
                   <MenuCard
+                    onClick={() => handleFlavors('traditional')}
                     imgSrc={imageChurrosTradicional}
                     name={'Churros Tradicional'}
                     link="/2"
                   />
                 </div>
               </div>
-              <div className="dishItemContainer">
-                <ItemCard
-                  imgSrc={churrosDoceDeLeite}
-                  name="Doce de Leite"
-                  ratings="5"
-                  price="4,00"
-                />
-                <ItemCard
-                  imgSrc={churrosDoceDeLeite}
-                  name="Chocolate"
-                  ratings="5"
-                  price="5,00"
-                />
+              {allFlavors && <AllFlavors />}
+              {traditionalFlavors && <TraditionalFlavors />}
+              {gourmetFlavors && <GourmetFlavors />}
+            </div>
+          </div>
+          <div className="rightMenu">
+            <div className="cartCheckOutContainer">
+              <div className="cartContainer">
+                <SubMenuContainer name="Carts Items" />
+                <div className="cartItems">
+                  <CartItem name={'Chocolate'} imgSrc={imageChurrosTodos} qty="3" price="7" />
+                  <CartItem name={'Morango'} imgSrc={imageChurrosTodos} qty="6" price="7" />
+                </div>
               </div>
             </div>
           </div>
-          <div className="rightMenu"></div>
         </main>
 
         <div className="leftMenu">
