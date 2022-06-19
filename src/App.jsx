@@ -22,11 +22,14 @@ import AllFlavors from './Components/AllFlavors';
 import TraditionalFlavors from './Components/TraditionalFlavors';
 import GourmetFlavors from './Components/GourmetFlavors';
 import CartItem from './Components/CartItem';
+import { useStateValue } from './Components/StateProvider';
 
 function App() {
   const [allFlavors, setAllFlavors] = useState(true);
   const [traditionalFlavors, setTraditional] = useState(false);
   const [gourmetFlavors, setGourmet] = useState(false);
+  const [{ cart }] = useStateValue();
+  const [totalPrice, setTotalPrice] = useState(0);
 
   const handleFlavors = (type) => {
     if (type === 'all') {
@@ -81,23 +84,38 @@ function App() {
             </div>
           </div>
           <div className="rightMenu">
-            <div className="cartCheckOutContainer">
-              <div className="cartContainer">
-                <SubMenuContainer name="Carts Items" />
-                <div className="cartItems">
-                  <CartItem name={'Chocolate'} imgSrc={imageChurrosTodos} qty="3" price="7" />
-                  <CartItem name={'Morango'} imgSrc={imageChurrosTodos} qty="6" price="7" />
+            {!cart ? (
+              <div>Carrinho Vazio!</div>
+            ) : (
+              <>
+                <div className="cartCheckOutContainer">
+                  <div className="cartContainer">
+                    <SubMenuContainer name="Carts Items" />
+                    <div className="cartItems">
+                      {cart &&
+                        cart.map(({ id, name, imgSrc, price }) => (
+                          <CartItem
+                            key={id}
+                            name={name}
+                            imgSrc={imgSrc}
+                            price={price}
+                            id={id}
+                            total={setTotalPrice}
+                          />
+                        ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div className="totalSection">
-              <h3>Total</h3>
-              <p>
-                <span>R$ </span>
-                {'45'}
-              </p>
-            </div>
-            <button className="checkOut">Finalizar Compra</button>
+                <div className="totalSection">
+                  <h3>Total</h3>
+                  <p>
+                    <span>R$ </span>
+                    {totalPrice}
+                  </p>
+                </div>
+                <button className="checkOut">Finalizar Compra</button>
+              </>
+            )}
           </div>
         </main>
 

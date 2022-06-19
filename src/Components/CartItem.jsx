@@ -1,8 +1,37 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import AddShoppingCartRoundedIcon from '@mui/icons-material/AddShoppingCartRounded';
 import RemoveShoppingCartRoundedIcon from '@mui/icons-material/RemoveShoppingCartRounded';
+import { useStateValue } from './StateProvider';
+import { actionType } from './reducer';
 
-function CartItem({ name, imgSrc, qty, price }) {
+let cartItems = [];
+
+function CartItem({ name, imgSrc, price, id, total}) {
+  const [qty, setQty] = useState(1);
+  const [itemPrice, setItemPrice] = useState(parseInt(qty) * parseFloat(price));
+  const [{ cart }, dispatch] = useStateValue();
+
+  useEffect(() => {
+    cartItems = cart;
+    setItemPrice(parseInt(qty) * parseFloat(price));
+  }, [qty, cart, price]);
+
+  const updateQuantity = (action, id) => {
+    if (action === 'add') {
+      setQty(qty + 1);
+    }
+    if (action === 'remove') {
+      if (qty === 1) {
+        cartItems.pop(id);
+        dispatch({
+          type: actionType.SET_CART,
+          cart: cartItems,
+        });
+      }
+      setQty(qty - 1);
+    }
+  };
+
   return (
     <div className="cartItem">
       <div className="imgBox">
@@ -14,14 +43,20 @@ function CartItem({ name, imgSrc, qty, price }) {
         <div className="itemQuantity">
           <span>x{qty}</span>
           <div className="quantity">
-            <AddShoppingCartRoundedIcon className="itemAdd" />
-            <RemoveShoppingCartRoundedIcon className="itemRemove" />
+            <RemoveShoppingCartRoundedIcon
+              className="itemRemove"
+              onClick={() => updateQuantity('remove', id)}
+            />
+            <AddShoppingCartRoundedIcon
+              className="itemAdd"
+              onClick={() => updateQuantity('add', id)}
+            />
           </div>
         </div>
       </div>
       <p className="itemPrice">
         <span className="dolorSign">R$ </span>
-        <span className="itemPriceValue">{Number(qty) * Number(price)}</span>
+        <span className="itemPriceValue">{itemPrice}</span>
       </p>
     </div>
   );
