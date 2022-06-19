@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
 import { imageChurrosHeader } from './Data';
 
 function Header() {
+  useEffect(() => {
+    const toggleIcon = document.querySelector('.toggleMenu');
+    toggleIcon.addEventListener('click', () => {
+      document.querySelector('.rightMenu').classList.toggle('active');
+    });
+  }, []);
+  
   return (
     <header>
       <img src={imageChurrosHeader} alt="Imagem de Churros" className="logo" />

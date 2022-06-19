@@ -90,6 +90,14 @@ function App() {
                 </div>
               </div>
             </div>
+            <div className="totalSection">
+              <h3>Total</h3>
+              <p>
+                <span>R$ </span>
+                {'45'}
+              </p>
+            </div>
+            <button className="checkOut">Finalizar Compra</button>
           </div>
         </main>
 
