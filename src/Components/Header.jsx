@@ -2,15 +2,12 @@ import React from 'react';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import MenuTwoToneIcon from '@mui/icons-material/MenuTwoTone';
+import { imageChurrosHeader } from './Data';
 
 function Header() {
   return (
     <header>
-      <img
-        src="https://firebasestorage.googleapis.com/v0/b/divino-churros.appspot.com/o/logo-churros.jpg?alt=media&token=c00a6666-0768-4976-b499-ee0dfac9e71d"
-        alt="Imagem de Churros"
-        className="logo"
-      />
+      <img src={imageChurrosHeader} alt="Imagem de Churros" className="logo" />
 
       <div className="inputBox">
         <SearchRoundedIcon className="searchIcon" />

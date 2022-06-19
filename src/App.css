@@ -489,7 +489,6 @@ main {
 .itemCard {
   width: 160px;
   height: 180px;
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -501,7 +500,7 @@ main {
 .isFavourite {
   position: absolute;
   top: 80px;
-  right: 10px;
+  right: 14px;
   transition: 0.5s;
 }
 
@@ -568,18 +567,6 @@ main {
 .itemContent .bottom .price span {
   color: #f8901c;
   font-size: 12px;
-}
-
-.itemContent .addToCart {
-  background: #f8901c;
-  width: 25px;
-  height: 25px;
-  border-radius: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.15);
-  cursor: pointer;
 }
 
 .itemContent .addToCart .MuiSvgIcon-root {
