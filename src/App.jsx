@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import Header from './Components/Header';
 import BannerName from './Components/BannerName';
 import MenuContainer from './Components/MenuContainer';
@@ -49,14 +49,18 @@ function App() {
     }
   };
   return (
-    <BrowserRouter>
+    <HashRouter>
       <div className="App">
         <Header />
         <main>
           <div className="mainContainer">
             <div className="banner">
               <BannerName name={'Jey'} discount="1 Gratis" link="#" />
-              <img src={imageChurrosBanner} alt="Banner Divino Churros" className="deliveryPic" />
+              <img
+                src={imageChurrosBanner}
+                alt="Banner Divino Churros"
+                className="deliveryPic"
+              />
             </div>
             <div className="dishContainer">
               <div className="menuCard">
@@ -64,10 +68,18 @@ function App() {
               </div>
               <div className="rowContainer">
                 <div onClick={() => handleFlavors('all')}>
-                  <MenuCard imgSrc={imageChurrosTodos} name={'Todos os Sabores'} link="/" />
+                  <MenuCard
+                    imgSrc={imageChurrosTodos}
+                    name={'Todos os Sabores'}
+                    link="/"
+                  />
                 </div>
                 <div onClick={() => handleFlavors('gourmet')}>
-                  <MenuCard imgSrc={imageChurrosGourmet} name={'Churros Gourmet'} link="/1" />
+                  <MenuCard
+                    imgSrc={imageChurrosGourmet}
+                    name={'Churros Gourmet'}
+                    link="/1"
+                  />
                 </div>
                 <div>
                   <MenuCard
@@ -130,7 +142,7 @@ function App() {
           </ul>
         </div>
       </div>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
