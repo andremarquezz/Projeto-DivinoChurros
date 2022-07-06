@@ -130,7 +130,6 @@ function App() {
             )}
           </div>
         </main>
-
         <div className="leftMenu">
           <ul id="menu">
             <MenuContainer link="/" icon={<HomeRoundedIcon />} />
