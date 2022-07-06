@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ProjetoDivinoChurros/static/css/main.77241bd4.css",
+    "main.js": "/ProjetoDivinoChurros/static/js/main.be1945a8.js",
+    "index.html": "/ProjetoDivinoChurros/index.html",
+    "main.77241bd4.css.map": "/ProjetoDivinoChurros/static/css/main.77241bd4.css.map",
+    "main.be1945a8.js.map": "/ProjetoDivinoChurros/static/js/main.be1945a8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.77241bd4.css",
+    "static/js/main.be1945a8.js"
+  ]
+}
